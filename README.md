@@ -1,6 +1,6 @@
 # Hacking-Notes (Red Team)
 
-Hello and welcome to my GitHub repository! This repository contains notes and resources related to ethical hacking, also known as "red teaming." Here, you'll find a wealth of information on various aspects of hacking, including information gathering, scanning and enumeration, web hacking, exploitation, and windows/linux hacking.
+Hello and welcome to my GitHub repository! This repository contains notes and resources related to ethical hacking, also known as "red team." Here, you'll find a wealth of information on various aspects of hacking, including information gathering, scanning and enumeration, web hacking, exploitation, and windows/linux hacking.
 
 ![image](https://user-images.githubusercontent.com/118412415/218325717-ba7330ce-d932-40cf-bb16-5f09e4c7f16f.png)
 
