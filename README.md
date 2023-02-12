@@ -16,3 +16,5 @@ In the section on web hacking, you'll find information on various types of injec
 The exploitation section of the repository covers techniques for taking advantage of vulnerabilities in order to gain unauthorized access to a target system. This may involve techniques such as buffer overflows, privilege escalation, or other methods of compromising a system.
 
 Finally, you'll find information on windows and linux hacking, including techniques for exploiting vulnerabilities in these popular operating systems. Whether you're a beginner or an experienced hacker, you'll find valuable information and resources in this repository to help you improve your skills and better understand the world of ethical hacking.
+
+**Please note that these notes do not comprise a comprehensive guide to becoming a red teamer. They are a work in progress and will continually be updated and expanded with more information.**
