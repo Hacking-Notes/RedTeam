@@ -3,13 +3,13 @@
 
 Website Enumeration
 ```Terminal 
-ffuf -u WEBISTE -w WORDLIST -fs NUMBER -fc STATUS
+ffuf -u WEBISTE/FUZZ -w WORDLIST -fs NUMBER -fc STATUS -t NUMBER_TREATH
 ```
 - -u       ---> Website (Include the FUZZ word were you want to Fuzz) 
 - -w      ---> Wordlist to be select
 -  -fs      ---> Default response number (bytes) to ignore
 - -fc      ---> Response status to ignore (example 404,402, ...)
-- 
+
 ---
 <h2>All Commands</h2>
 
