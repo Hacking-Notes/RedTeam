@@ -25,7 +25,7 @@ More information ---> [[Red Team/1 - Information Gathering/2 - Active  Reconnais
 
 Gobuster allow you to enumerate directory to try to find some API folder
 
-More information ---> [[Red Team/3 - Web Hacking/Brute Force/2 - Fuzz/Gobuster/• Commands]]
+More information ---> [[Red Team/3 - Web Hacking/1 - Brute Force/2 - Fuzz/• Gobuster]]
 
 ---
 

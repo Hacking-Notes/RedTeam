@@ -8,6 +8,8 @@
 	Language ---> altloc:"en-us"
 	
 
+---
+
 <h4>Search Terms</h4>
 
 ```
@@ -36,6 +38,8 @@ site:facebook.* -site:facebook.com
 #Glob pattern
 site:*.com
 ```
+
+Check online ressource ---> https://dorksearch.com/
 
 ---
 

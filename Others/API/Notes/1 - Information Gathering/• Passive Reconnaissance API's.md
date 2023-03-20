@@ -12,7 +12,7 @@ It can also be suitable to inspect network requests in inspector mode and tying 
 
 An other way of finding API can be by enumerating some domains. You might find some interecting element. (This can expose some subdomain use for api without containing the specific word "API")
 
-Enumeration ---> [[Red Team/3 - Web Hacking/Brute Force/2 - Fuzz/Gobuster/• Commands]]
+Enumeration ---> [[Red Team/3 - Web Hacking/1 - Brute Force/2 - Fuzz/• Gobuster]]
 
 ---
 
