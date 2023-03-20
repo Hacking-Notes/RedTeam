@@ -2,7 +2,7 @@
 
 Hello and welcome to my GitHub repository! This repository contains notes and resources related to ethical hacking, also known as "red team." Here, you'll find a wealth of information on various aspects of hacking, including information gathering, scanning and enumeration, web hacking, exploitation, and windows/linux hacking.
 
-![image](https://user-images.githubusercontent.com/118412415/218325717-ba7330ce-d932-40cf-bb16-5f09e4c7f16f.png)
+![image](https://user-images.githubusercontent.com/118412415/226417488-27cb9aac-877c-411e-916f-02033662cf49.png)
 
 
 Starting with information gathering, you'll find techniques and tools for gathering information about a target system or network, such as reconnaissance and footprinting. This information can then be used to identify potential vulnerabilities and plan your attack.
