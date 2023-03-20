@@ -1,7 +1,13 @@
 --- ---
+<h2>What is DNS</h2>
+DNS (Domain Name System) uses port 53 as its default port for communication between DNS clients and DNS servers. When a DNS client, such as a web browser or email client, needs to resolve a domain name into an IP address, it sends a DNS query to a DNS server using UDP or TCP on port 53.
 
-<h2>Find DNS Port</h2>
+DNS servers typically listen for incoming queries on port 53 and respond with the corresponding IP address or other DNS records, such as MX records for email servers or TXT records for domain verification.
 
+Port 53 is designated by the Internet Assigned Numbers Authority (IANA) as the standard port for DNS, and it is widely used on the internet for DNS communication between clients and servers.
+
+---
+<h3>Find DNS Port</h3>
 Nmap
 ```
 nmap -sV -SC IP -p53
@@ -10,9 +16,7 @@ nmap -sV -SC IP -p53
 - Possible to find DNS on an other port
 
 ---
-
-<h2>Connection</h2>
-
+<h3>Connection</h3>
 - Telnet
 ```Terminal
 telnet [ip] 53
@@ -28,9 +32,7 @@ nslookup www.example.com A
 - A ---> A record (DNS query we want information on)
 
 --- 
-
-<h2>Attack</h2>
-
+<h3>Attack</h3>
 If an attacker is able to access an open port 53 (DNS) on a target system, they may be able to perform a variety of actions, depending on the configuration of the DNS server. Some possible actions an attacker could take include:
 
 1.  Perform DNS spoofing attacks:           ---> Redirect users to fake websites or intercept sensitive data being transmitted over the network.
@@ -40,7 +42,6 @@ If an attacker is able to access an open port 53 (DNS) on a target system, they 
 3.  Enumerate domain names                    ---> DNS zone transfers (List of all the domain names registered on a particular DNS server)
 
 <h4>Check Zone Info</h4>
-
 One way to send a DNS query using `telnet` to converts a DNS query into binary format, such as `dig` or `nslookup`. Here is an example of how you can use `dig` to send a DNS query for an A record for the domain `www.example.com`:
 
 - Searching trought the DNS using DIG
@@ -50,7 +51,6 @@ dig www.example.com CNAME
 ```
 
 <h4>DNS Zone Transfer</h4>
-
 To exploit a DNS zone transfer, you will need to know the IP address of the DNS server you want to request the records from and the name of the zone you want to transfer.
 
 Here is an example of how you can use `dig` to request a DNS zone transfer from a DNS server:

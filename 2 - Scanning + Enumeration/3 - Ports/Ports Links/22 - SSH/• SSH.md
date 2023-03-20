@@ -1,7 +1,11 @@
 --- ---
+<h2>What is SSH</h2>
+SSH (Secure Shell) is a network protocol that is used to securely connect to remote systems over an unsecured network, such as the internet. SSH provides a secure encrypted connection between a client and a server, allowing users to remotely access and control systems and services.
 
-<h2>Find SSH Port</h2>
+SSH works by creating a secure channel between the client and the server using encryption algorithms to secure the connection. This secure channel can be used to run various network services and applications, such as a command shell, file transfer protocol, or remote desktop application.
 
+---
+<h3>Find SSH Port</h3>
 Nmap
 ```
 nmap -sV -SC IP -p20,21
@@ -10,9 +14,7 @@ nmap -sV -SC IP -p20,21
 - Possible to find SSH on an other port
 
 ---
-
-<h2>Attack</h2>
-
+<h3>Attack</h3>
 - Brute Force
 ```Terminal
 hydra -t X -l USERNAME -P WORDLIST -vV IP ssh
@@ -29,11 +31,8 @@ Let's break it down:
 - ssh           --->  Sets the protocol
 
 ---
-
-<h2>Connection</h2>
-
+<h3>Connection</h3>
 <h4>Linux Connection</h4>
-
 - Command
 ```Terminal
 ssh USER@IP
@@ -44,14 +43,12 @@ ssh -i id_rsa USER@IP
 - id_rsa.pub         ---> Public (Contain Username)
 
 <h4>Windows Connection</h4>
-
 - Option
 ```Terminal
 Remmina (tool)
 ```
 
 <h4>Active Directory Connection</h4>
-
 - Options
 ```Terminal
 - Remmina (tool)

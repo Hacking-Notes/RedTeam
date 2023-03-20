@@ -1,44 +1,4 @@
 --- ---
-
-<h2>Find FTP Port</h2>
-
-Nmap
-```
-nmap -sV -SC IP -p20,21
-```
-
-- Possible to find FTP on an other port
-
----
-
-<h2>Attack</h2>
-
-- Brute Force
-```Terminal
-hydra -t X -l USERNAME -P WORDLIST -vV IP ftp
-```
-
-Let's break it down:
-
-- hydra      --->  Runs the hydra tool  
-- -t X         --->  Number of parallel connections per target  
-- -l             ---> Points to the user who's account you're trying to compromise  
-- -P            ---> Points to the file containing the list of possible passwords  
-- -vV          ---> Sets verbose mode to very verbose, shows login + password 
-- IP             ---> The IP address of the target machine  
-- ftp           --->  Sets the protocol
-
----
-
-<h2>Connection</h2>
-
-- Connection
-```
-ftp [options] [IP]
-```
-
----
-
 <h2>What is FTP</h2>
 
 File Transfer Protocol (FTP) is, as the name suggests , a protocol used to allow remote transfer of files over a network. It uses a client-server model to do this, and- as we'll come on to later- relays commands and data in a very efficient way.  
@@ -68,3 +28,36 @@ File Transfer Protocol (FTP) is, as the name suggests , a protocol used to allow
 - **More Details:**
 
 	You can find more details on the technical function, and implementation of, FTP on the Internet Engineering Task Force website: [https://www.ietf.org/rfc/rfc959.txt](https://www.ietf.org/rfc/rfc959.txt). The IETF is one of a number of standards agencies, who define and regulate internet standards.
+
+---
+<h3>Find FTP Port</h3>
+Nmap
+```
+nmap -sV -SC IP -p20,21
+```
+
+- Possible to find FTP on an other port
+
+---
+<h3>Attack</h3>
+- Brute Force
+```Terminal
+hydra -t X -l USERNAME -P WORDLIST -vV IP ftp
+```
+
+Let's break it down:
+
+- hydra      --->  Runs the hydra tool  
+- -t X         --->  Number of parallel connections per target  
+- -l             ---> Points to the user who's account you're trying to compromise  
+- -P            ---> Points to the file containing the list of possible passwords  
+- -vV          ---> Sets verbose mode to very verbose, shows login + password 
+- IP             ---> The IP address of the target machine  
+- ftp           --->  Sets the protocol
+
+---
+<h3>Connection</h3>
+- Connection
+```
+ftp [options] [IP]
+```

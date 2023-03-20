@@ -1,7 +1,27 @@
 --- ---
+<h3>What is SMB</h3>
+SMB - Server Message Block Protocol - is a client-server communication protocol used for sharing access to files, printers, serial ports and other resources on a network. [[source](https://searchnetworking.techtarget.com/definition/Server-Message-Block-Protocol)]  
 
-<h2>Find SMB Port</h2>
+Servers make file systems and other resources (printers, named pipes, APIs) available to clients on the network. Client computers may have their own hard disks, but they also want access to the shared file systems and printers on the servers.
 
+The SMB protocol is known as a response-request protocol, meaning that it transmits multiple messages between the client and server to establish a connection. Clients connect to servers using TCP/IP (actually NetBIOS over TCP/IP as specified in RFC1001 and RFC1002), NetBEUI or IPX/SPX.
+
+- **How does SMB work?**  
+
+	![](https://i.imgur.com/XMnru12.png)
+
+	Once they have established a connection, clients can then send commands (SMBs) to the server that allow them to access shares, open files, read and write files, and generally do all the sort of things that you want to do with a file system. However, in the case of SMB, these things are done over the network.
+
+- **What runs SMB?**
+
+	Microsoft Windows operating systems since Windows 95 have included client and server SMB protocol support. Samba, an open source server that supports the SMB protocol, was released for Unix systems.
+
+- **SMB Ports**
+
+	SMB run on the port 139 and 445
+
+---
+<h3>Find SMB Port</h3>
 - Nmap
 ```Terminal
 nmap -sV -sC IP -p110
@@ -10,10 +30,8 @@ nmap -sV -sC IP -p110
 - Possible to find SMB on an other port
 
 ---
-
-<h2>Connection</h2>
+<h3>Connection</h3>
 <h4>Linux connection</h4>
-
 - Enumeration (Need to know the share location & name of interesting file)
 ```Terminal
 Enum4Linux          ---> https://github.com/CiscoCXSecurity/enum4linux
@@ -55,7 +73,6 @@ Enum4Linux Commands
 
 
 <h4>Windows Connection</h4>
-
 - Crackmapexec (VERY GOOD)
 ```
 crackmapexec smb IP -u '' -p '' -M spider_plus
@@ -76,28 +93,3 @@ smbmap -H IP -d DOMAIN.local -u ''  -p ''
 
 - -u [name]     ---> Specify the user (empty = Anonymous)
 - -p [port]        ---> Specify the port  (empty = Anonymous)
-
-
-----
-
-<h2>What is SMB</h2>
-
-SMB - Server Message Block Protocol - is a client-server communication protocol used for sharing access to files, printers, serial ports and other resources on a network. [[source](https://searchnetworking.techtarget.com/definition/Server-Message-Block-Protocol)]  
-
-Servers make file systems and other resources (printers, named pipes, APIs) available to clients on the network. Client computers may have their own hard disks, but they also want access to the shared file systems and printers on the servers.
-
-The SMB protocol is known as a response-request protocol, meaning that it transmits multiple messages between the client and server to establish a connection. Clients connect to servers using TCP/IP (actually NetBIOS over TCP/IP as specified in RFC1001 and RFC1002), NetBEUI or IPX/SPX.
-
-- **How does SMB work?**  
-
-	![](https://i.imgur.com/XMnru12.png)
-
-	Once they have established a connection, clients can then send commands (SMBs) to the server that allow them to access shares, open files, read and write files, and generally do all the sort of things that you want to do with a file system. However, in the case of SMB, these things are done over the network.
-
-- **What runs SMB?**
-
-	Microsoft Windows operating systems since Windows 95 have included client and server SMB protocol support. Samba, an open source server that supports the SMB protocol, was released for Unix systems.
-
-- **SMB Ports**
-
-	SMB run on the port 139 and 445

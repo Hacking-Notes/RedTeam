@@ -1,171 +1,40 @@
 --- ---
-<h2>Top Commands</h2>
+<h3>What is Gobuster?</h3>
 
-#DIR
-```Terminal 
-gobuster dir -u WEBSITE -w WORDLIST -x "html,txt,php,zip,..." -t 25 --timeout Xs  --exclude-length X
-```
-- -u = URL
-- -w = Wordlist
-- -x = Append at the end of the directory
-- -t = treats
-- --timeout = Add some time between respond
-- --exclude-lenght = Exclude result that has X bytes of data
+Gobuster is an open-source command-line tool used for directory and DNS subdomain brute-forcing. It allows users to discover hidden files and directories on a web server, and find subdomains on a given domain.
+
+The tool works by sending HTTP/HTTPS requests to the web server or DNS queries to the domain name server, and analyzes the responses to determine if there are any hidden files, directories or subdomains.
 
 ---
+<h4>Common Use and Commands:</h4>
+Gobuster is commonly used by security researchers, penetration testers and system administrators to identify potential security vulnerabilities and weaknesses in web applications.
 
-<h2>All Commands (Modes)</h2>
+The following are some common commands used in Gobuster:
 
-#DIR ---> Uses directory/file enumeration mode
-
+Scan for directories: 
 ```
-Usage:
-  gobuster dir [flags]
+gobuster dir -u <url> -w <wordlist>
 
-Flags:
-  -f, --add-slash                       Append / to each request
-  -c, --cookies string                  Cookies to use for the requests
-  -d, --discover-backup                 Also search for backup files by appending multiple backup extensions
-      --exclude-length ints             exclude the following content length (completely ignores the status). Supply multiple times to exclude multiple sizes.
-  -e, --expanded                        Expanded mode, print full URLs
-  -x, --extensions string               File extension(s) to search for
-  -r, --follow-redirect                 Follow redirects
-  -H, --headers stringArray             Specify HTTP headers, -H 'Header1: val1' -H 'Header2: val2'
-  -h, --help                            help for dir
-      --hide-length                     Hide the length of the body in the output
-  -m, --method string                   Use the following HTTP method (default "GET")
-  -n, --no-status                       Don't print status codes
-  -k, --no-tls-validation               Skip TLS certificate verification
-  -P, --password string                 Password for Basic Auth
-      --proxy string                    Proxy to use for requests [http(s)://host:port]
-      --random-agent                    Use a random User-Agent string
-      --retry                           Should retry on request timeout
-      --retry-attempts int              Times to retry on request timeout (default 3)
-  -s, --status-codes string             Positive status codes (will be overwritten with status-codes-blacklist if set)
-  -b, --status-codes-blacklist string   Negative status codes (will override status-codes if set) (default "404")
-      --timeout duration                HTTP Timeout (default 10s)
-  -u, --url string                      The target URL
-  -a, --useragent string                Set the User-Agent string (default "gobuster/3.2.0")
-  -U, --username string                 Username for Basic Auth
+gobuster dir -u <url> -w <wordlist> -x "html,txt,php,zip,..." -t 25 --timeout Xs  --exclude-length X
+```
+- -u                                                     ---> URL
+- -w                                                    ---> Wordlist
+- -x                                                     ---> Append at the end of the directory
+- -t                                                     ---> treats
+- --timeout                                        ---> Add some time between respond
+- --exclude-lenght                            ---> Exclude result that has X bytes of data
 
-Global Flags:
-      --delay duration    Time each thread waits between requests (e.g. 1500ms)
-      --no-color          Disable color output
-      --no-error          Don't display errors
-  -z, --no-progress       Don't display progress
-  -o, --output string     Output file to write results to (defaults to stdout)
-  -p, --pattern string    File containing replacement patterns
-  -q, --quiet             Don't print the banner and other noise
-  -t, --threads int       Number of concurrent threads (default 10)
-  -v, --verbose           Verbose output (errors)
-  -w, --wordlist string   Path to the wordlist
+Scan for subdomains:
+```
+gobuster dns -d <domain> -w <wordlist>
 ```
 
-#DNS ---> Uses DNS subdomain enumeration mode
+Gobuster supports multiple options and flags to customize the scan, such as setting the user-agent, specifying the proxy, setting the timeout and enabling recursion.
 
-```
-Usage:
-  gobuster dns [flags]
+---
+<h3>More Information</h3>
 
-Flags:
-  -d, --domain string      The target domain
-  -h, --help               help for dns
-  -r, --resolver string    Use custom DNS server (format server.com or server.com:port)
-  -c, --show-cname         Show CNAME records (cannot be used with '-i' option)
-  -i, --show-ips           Show IP addresses
-      --timeout duration   DNS resolver timeout (default 1s)
-      --wildcard           Force continued operation when wildcard found
+For more information on Gobuster, including the latest updates and documentation, please visit the project's official Github repository: https://github.com/OJ/gobuster
 
-Global Flags:
-      --delay duration    Time each thread waits between requests (e.g. 1500ms)
-      --no-color          Disable color output
-      --no-error          Don't display errors
-  -z, --no-progress       Don't display progress
-  -o, --output string     Output file to write results to (defaults to stdout)
-  -p, --pattern string    File containing replacement patterns
-  -q, --quiet             Don't print the banner and other noise
-  -t, --threads int       Number of concurrent threads (default 10)
-  -v, --verbose           Verbose output (errors)
-  -w, --wordlist string   Path to the wordlist
-```
+<iframe src="https://github.com/OJ/gobuster" width="100%" height="1300"></iframe>
 
-#Fuzz ---> Uses fuzzing mode
-
-```
-Usage:
-  gobuster fuzz [flags]
-
-Flags:
-  -c, --cookies string              Cookies to use for the requests
-      --exclude-length ints         exclude the following content length (completely ignores the status). Supply multiple times to exclude multiple sizes.
-  -b, --excludestatuscodes string   Negative status codes (will override statuscodes if set)
-  -r, --follow-redirect             Follow redirects
-  -H, --headers stringArray         Specify HTTP headers, -H 'Header1: val1' -H 'Header2: val2'
-  -h, --help                        help for fuzz
-  -m, --method string               Use the following HTTP method (default "GET")
-  -k, --no-tls-validation           Skip TLS certificate verification
-  -P, --password string             Password for Basic Auth
-      --proxy string                Proxy to use for requests [http(s)://host:port]
-      --random-agent                Use a random User-Agent string
-      --retry                       Should retry on request timeout
-      --retry-attempts int          Times to retry on request timeout (default 3)
-      --timeout duration            HTTP Timeout (default 10s)
-  -u, --url string                  The target URL
-  -a, --useragent string            Set the User-Agent string (default "gobuster/3.2.0")
-  -U, --username string             Username for Basic Auth
-
-Global Flags:
-      --delay duration    Time each thread waits between requests (e.g. 1500ms)
-      --no-color          Disable color output
-      --no-error          Don't display errors
-  -z, --no-progress       Don't display progress
-  -o, --output string     Output file to write results to (defaults to stdout)
-  -p, --pattern string    File containing replacement patterns
-  -q, --quiet             Don't print the banner and other noise
-  -t, --threads int       Number of concurrent threads (default 10)
-  -v, --verbose           Verbose output (errors)
-  -w, --wordlist string   Path to the wordlist
-```
-
-#Vhost ---> Uses VHOST enumeration mode (use the IP address as the URL parameter)
-
-```
-
-
-Usage:
-  gobuster vhost [flags]
-
-Flags:
-      --append-domain         Append main domain from URL to words from wordlist. Otherwise the fully qualified domains need to be specified in the wordlist.
-  -c, --cookies string        Cookies to use for the requests
-      --domain string         the domain to append when using an IP address as URL. If left empty and you specify a domain based URL the hostname from the URL is extracted
-      --exclude-length ints   exclude the following content length (completely ignores the status). Supply multiple times to exclude multiple sizes.
-  -r, --follow-redirect       Follow redirects
-  -H, --headers stringArray   Specify HTTP headers, -H 'Header1: val1' -H 'Header2: val2'
-  -h, --help                  help for vhost
-  -m, --method string         Use the following HTTP method (default "GET")
-  -k, --no-tls-validation     Skip TLS certificate verification
-  -P, --password string       Password for Basic Auth
-      --proxy string          Proxy to use for requests [http(s)://host:port]
-      --random-agent          Use a random User-Agent string
-      --retry                 Should retry on request timeout
-      --retry-attempts int    Times to retry on request timeout (default 3)
-      --timeout duration      HTTP Timeout (default 10s)
-  -u, --url string            The target URL
-  -a, --useragent string      Set the User-Agent string (default "gobuster/3.2.0")
-  -U, --username string       Username for Basic Auth
-
-Global Flags:
-      --delay duration    Time each thread waits between requests (e.g. 1500ms)
-      --no-color          Disable color output
-      --no-error          Don't display errors
-  -z, --no-progress       Don't display progress
-  -o, --output string     Output file to write results to (defaults to stdout)
-  -p, --pattern string    File containing replacement patterns
-  -q, --quiet             Don't print the banner and other noise
-  -t, --threads int       Number of concurrent threads (default 10)
-  -v, --verbose           Verbose output (errors)
-  -w, --wordlist string   Path to the wordlist
-```
-
-#others ---> https://github.com/OJ/gobuster

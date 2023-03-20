@@ -1,7 +1,5 @@
 --- ---
-
 <h2>Commands</h2>
-
 Command (Connection)
 ```
 crackmapexec smb IP -u '' -p ''
@@ -36,7 +34,5 @@ crackmapexec smb IP -u '' -p '' --shares
 - --shares                                 ---> Enumerate shares access (Show folders & permissions)
 
 ---
-
-<h2>More Information</h2>
-
+<h3>More Information</h3>
 More information ---> [Crackmapexec]([[Red Team/6 - Machine/3 - Active Directory/General/Tools/TOP/1 - Crackmapexec]])

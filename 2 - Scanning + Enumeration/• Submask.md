@@ -1,21 +1,14 @@
 --- ---
+<h2>Subnet Mask</h2>
+A subnet mask is used in IP addresses to specify the range of addresses that are part of a network. The subnet mask is denoted by a slash followed by a number, such as /24 or /23, which specifies the number of bits that are used to identify the network portion of the address. The network portion of an IP address is the part that identifies the network, while the remaining part identifies the host.
 
-<h2>Submask</h2>
+The most commonly used subnet masks are:
+-   <font color="blue">/24</font>: This subnet mask includes all IP addresses from x.x.x.1 to x.x.x.254, where x.x.x is the network portion of the address. This is often used for small to medium-sized networks.
+-   <font color="blue">/23</font>: This subnet mask includes all IP addresses from x.x.x.1 to x.x.x.254, where x.x.x is the network portion of the address. This is often used for larger networks.
+-   <font color="blue">/16</font>: This subnet mask includes all IP addresses from x.x.0.1 to x.x.255.254, where x.x is the network portion of the address. This is often used for very large networks.
 
-Subnet masks are used in IP addresses to specify the range of addresses that are part of a network. The subnet mask is denoted by a slash followed by a number, such as /24 or /23, which specifies the number of bits that are used to identify the network portion of the address. A larger subnet mask includes a larger range of IP addresses in the network, while a smaller subnet mask includes a smaller range of IP addresses.
-
-Most Commun
-	- A subnet mask of /24 (e.g. 192.168.0.1/24) specifies that the network includes all IP addresses from 192.168.0.1 to 192.168.0.254.
-	ㅤ
-	-   A subnet mask of /23 (e.g. 192.168.0.1/23) specifies that the network includes all IP addresses from 192.168.0.1 to 192.168.1.254.
-	ㅤ
-	-   A subnet mask of /16 (e.g. 192.168.0.1/16) specifies that the network includes all IP addresses from 192.168.0.1 to 192.168.255.254.
-
-Others
-	-   /25: This subnet mask includes all IP addresses from x.x.x.1 to x.x.x.126, where x.x.x is the network portion of the address. This is often used to split a network into smaller subnetworks.
-	ㅤ
-	-   /26: This subnet mask includes all IP addresses from x.x.x.1 to x.x.x.62, where x.x.x is the network portion of the address. This is often used to split a network into smaller subnetworks.
-	ㅤ
-	-   /27: This subnet mask includes all IP addresses from x.x.x.1 to x.x.x.30, where x.x.x is the network portion of the address. This is often used to split a network into smaller subnetworks.
-	ㅤ
-	-   /28: This subnet mask includes all IP addresses from x.x.x.1 to x.x.x.14, where x.x.x is the network portion of the address. This is often used to split a network into smaller subnetworks.
+Other subnet masks that may be used to split a network into smaller subnetworks include:
+-   <font color="blue">/25</font>: This subnet mask includes all IP addresses from x.x.x.1 to x.x.x.126, where x.x.x is the network portion of the address.
+-   <font color="blue">/26</font>: This subnet mask includes all IP addresses from x.x.x.1 to x.x.x.62, where x.x.x is the network portion of the address.
+-   <font color="blue">/27</font>: This subnet mask includes all IP addresses from x.x.x.1 to x.x.x.30, where x.x.x is the network portion of the address.
+-   <font color="blue">/28</font>: This subnet mask includes all IP addresses from x.x.x.1 to x.x.x.14, where x.x.x is the network portion of the address.

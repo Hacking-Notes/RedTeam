@@ -1,7 +1,5 @@
 --- ---
-
 <h2>General Commands</h2>
-
 - Nmap (SCRIPT)
 ```Terminal
 nmap -p 445 --script=smb-enum-shares.nse,smb-enum-users.nse IP    --->  (Enum Users)
@@ -14,7 +12,7 @@ smbget -R smb://<ip>/anonymous           (Download Files available) or simply `g
 ```
 
 ---
-<h2>What is Samba</h2>
+<h3>What is Samba</h3>
 
 ![](https://i.imgur.com/O8S93Kr.png)
 
