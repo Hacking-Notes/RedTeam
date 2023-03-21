@@ -15,6 +15,12 @@ The exploitation section of the repository covers techniques for taking advantag
 
 Finally, you'll find information on windows and linux hacking, including techniques for exploiting vulnerabilities in these popular operating systems. Whether you're a beginner or an experienced hacker, you'll find valuable information and resources in this repository to help you improve your skills and better understand the world of ethical hacking.
 
+## Get the same Obsidian Setup
+
+If you're looking to replicate the sleek and stylish obsidian setup, you're in luck! You can easily achieve the same look by downloading it from the link provided below.
+
+Link: <a href="https://drive.google.com/drive/folders/1mli7lFvswrRcxEfdtmqdogFjSSSwDWkq?usp=sharing">Google Drive</a>
+
 ---
 
 **Please note that these notes do not comprise a comprehensive guide to becoming a red teamer. They are a work in progress and will continually be updated and expanded with more information.**
