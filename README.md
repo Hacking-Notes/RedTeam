@@ -19,7 +19,9 @@ Finally, you'll find information on windows and linux hacking, including techniq
 
 If you aspire to recreate the elegant and fashionable obsidian setup, you're in for a treat! Achieving the same aesthetic is a breeze with the download link provided below, which includes all the obsidian plugins I utilize with my notes.
 
-Link: <a href="https://drive.proton.me/urls/YJEN1DX2NC#mXrYphpHWyRn">Proton Drive</a>
+Link: <a href="https://drive.proton.me/urls/RH80T2AQFR#gSaXYYpJRFF8">Proton Drive</a>
+
+Simply launch Obsidian and direct it to the recently downloaded file!
 
 ---
 
