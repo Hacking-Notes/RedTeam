@@ -15,6 +15,8 @@ The exploitation section of the repository covers techniques for taking advantag
 
 Finally, you'll find information on windows and linux hacking, including techniques for exploiting vulnerabilities in these popular operating systems. Whether you're a beginner or an experienced hacker, you'll find valuable information and resources in this repository to help you improve your skills and better understand the world of ethical hacking.
 
+https://github.com/Hacking-Notes/RedTeam/assets/118412415/af0ea1fb-0c7c-48e1-9e0e-5013f8a6bae2
+
 ## Get the same Obsidian Setup
 
 If you aspire to recreate the elegant and fashionable obsidian setup, you're in for a treat! Achieving the same aesthetic is a breeze with the download link provided below, which includes all the obsidian plugins I utilize with my notes.
