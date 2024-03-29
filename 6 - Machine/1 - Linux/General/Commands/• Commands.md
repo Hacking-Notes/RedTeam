@@ -24,10 +24,12 @@
 # General
 - pwd                                ---> Print current directory
 
+
 # AWK (Like grep but more advance)
 - awk '{print $1, $4}' TEST.txt      ---> Retrieve parameter Num 1 & 4 of each lines
 - awk '$4 > 30000' TEST.txt          ---> Retrieve parameter greater then 30K each lines
 - awk 'BEGIN {OFS=":"} {print $1, $4}' TEST.txt ---> Retrieve & print Num 1 & 4 separated by ":"
+
 
 # Grep (GREP IS CASE SENSITIVE)
 - grep "Text"                        ---> Check Text (-i=Allcases, -r=All folder file)
@@ -79,16 +81,19 @@
    - Enable
    - Disable
 
+
 # Environement Variable
 - Wich COMMAND                       ---> Show where the command is stored
 - env                                ---> Show all environement variable for bash
 - X=Something                        ---> Create environement var (echo $X = Some...)
 - export X=Y                         ---> Let you export env var (Remind it to terminal)
 
+
 # Alias
 - alias NAME='PATH/ACTION'     ---> Create Alias
 - unalias your_alias_name      ---> Remove Alias
 - sudo nano ~/.bashrc          ---> Permanent Alias (Edit the file & add the alias)
+
 
 # ???
 - echo "export PATH=$PATH:~/go/bin" >> ~/.bashrc
@@ -124,20 +129,25 @@
 - tail -n 5 file.txt                 ---> output the last 5 lines of the document
 - tail -n +2 file.txt                ---> Output everything after the second line
 
+
 # Removing file
 - rm file.txt                        ---> Removing a file
 - rmdir folder                       ---> Removing an empty directory
 - rm -r ANYTHING                     ---> Removing anything without error
 
+
 # Destroy/Delete Files
 shred FILE     ---> Destoy redability of a file
+
 
 # Copying files
 - cp filename /LOCATION/NEWFILENAME  ---> Copying files
 - cp filename NEWFILENAME            ---> Renaming a file
 
+
 # Moving files
 - mv
+
 
 # Creating File
 - mkdir                              ---> Create a folder
@@ -152,11 +162,13 @@ shred FILE     ---> Destoy redability of a file
 - &                                  ---> Run command in background
 - &&                                 ---> Combine commands
 
+
 # Partitions and volumes
 - sudo fdisk -l /dev/sdb             ---> Show partitions
 - sudo fdisk /dev/sdb                ---> MBR (m)=help (n)=create (d)=delete (p)=print
 - sudo gdisk /dev/sdc                ---> GPT (m)=help (n)=create (d)=delete (p)=print
 - sudo parted /dev/sdb               ---> ???
+
 
 # Mounting Volumes and Files system
 - lsblk -f                           ---> Show available mounting files system
@@ -167,6 +179,7 @@ shred FILE     ---> Destoy redability of a file
 	- UUID=THE_UUID /mnt/FOLDER FILEFORMAT defaults 0 0 ---> Use UUID to mount volume
 - sudo mount -a                      ---> Launch automaticly the fstab files
 - sudo umount /dev/sdb1              ---> Unmount the partition
+
 
 # LVM (Logical Volume Manager) - Using RAID 0,1,5 / Create virtual volume
 - sudo pycreate /dev/VOLUME1 /dev/VOLUME2  ---> Making them part of LVM
@@ -184,10 +197,22 @@ shred FILE     ---> Destoy redability of a file
 - Network
 ```
 - nslookup DOMAIN                    ---> Check DNS record (MX, CNAME, ...)
-- ip a                              ---> Easiest and fastest way to get IP info
+- ip -br addr                        ---> BEST WAY TO CHECK NETWORK ADDRESS & STATUS 
+- ip a                               ---> Easiest and fastest way to get IP info
 - netstat -tuna                      ---> Show ports and status (Open/Close)
+- netstat -natp                      ---> Show ports (a= active, t=TCP, p=program)
 - ss -tuna                           ---> Show ports and status (Open/Close) - SAME
-- ifconfig                           ---> Information IP
+- ss -natp                           ---> Show ports (a= active, t=TCP, p=program)
+- traceroute www.something.com       ---> See routing
+- systemctl restart systemd-networkd ---> Restart network
+- systemctl restart systemd-resolved ---> Restart resolved srv (NEEDED AFTER NETWORK)
+
+- nmcli device status                ---> Show available network device and status
+- nmcli device show DEVICENAME       ---> More info on device (DEVICE NAME=CONNECTION)
+- nmcli connection edit DEVICENAME   ---> Command prompt that enable you to change value
+	- set ipv4.whatneedtochange NEW-VALUE ---> Give new value to the device
+	- save temporary                      ---> Make it effective until reboot
+	- save persistent                     ---> Make it effective now til changed
 
 - cat /etc/hosts                     ---> Show DNS from the machine (IP linked to Nameserver)
 - cat /etc/resolv.conf               ---> Show where we will querry the DNS IP
@@ -209,6 +234,7 @@ shred FILE     ---> Destoy redability of a file
 - sudo cat /etc/gshadow              ---> Show group password
 - sudo cat /etc/group                ---> Show user associated with groups
 
+
 # Create Users
 - sudo useradd -d /home/USERNAME -m -G sudo,adm USERNAME ---> Create user, create directory, -m = create home, -G = add to the suplementary groups sudo & adm
 - sudo userdel -rf USERNAME          ---> Delete user & all its directory (f=force, r=remove)
@@ -220,6 +246,7 @@ shred FILE     ---> Destoy redability of a file
 - sudo chage -M 1 USER               ---> USER change passwd next 24H (Change -M 1 to X after)
 - sudoedit /etc/login.defs           ---> Set password policies for all users (easier management)
 - sudoedit /etc/security faillock.conf ---> Login faillure and lockout policies
+
 
 # Create Groups
 - sudo groupadd NAME                 ---> Create a group
@@ -238,11 +265,11 @@ shred FILE     ---> Destoy redability of a file
 - less ~/.profile                    ---> Chamge default permission given on new file
 	- #umask 022                     ---> U=0->ALL perms, G=2->R&E (7 - number (WEIRD))
 
+
 # Sudo Permission
 - ls -n                              ---> Enable you to see the user id and group id of a file
 - sudo visudo                        ---> Add sudo permissions to users (Commands used -> sudo)
 - sudo su -                          ---> Root shell with user password
-
 
 
 #  Standard Linux permissions typically restrict file access beyond the first user listed. To grant access to additional users, you'd usually create a new group, add users to it, and assign file permissions accordingly. Handling access for multiple groups can be cumbersome, but there's a simpler solution.
@@ -276,12 +303,35 @@ shred FILE     ---> Destoy redability of a file
 history                     ---> Show History of commands
 history clear               ---> Clear History of commands
 
+
 # Register Command
 command | tee >> FILE.TXT
 ```
 
 - Others
 ```Terminal
+# Remote access (SSH)
+- sudo apt install ssh
+- sudo systemctl enable -now ssh ---> Enable SSH
+- sudoedit /var/tmp/sshd_config  ---> Change SSH config (EX: port#, Hostkey, Certificate autotification and no password...)
+- shh USER@IP                    ---> Connect to SSH
+
+
+# File transfer
+- Filezilla               ---> Good option if GUI available
+- wget URL                ---> Download any pointing url
+- curl URL                ---> Download urls/services/mails/.. (WGET on steroids)
+- curl URL --output X.txt ---> Download urls/services/mails/.. to a X.txt
+
+- rsync -azurP /FOLDER-SYNC /PATH-DESTINATION                  ---> LOCAL COPY
+- NEED TO SSH IN OTHER MACHINE
+- ... -azurP -e shh /FOLDER-SYNC USER@COMPUTER:/FULL-PATH-DEST ---> REMOTE COPY
+- ... ... -e shh --exclude="*.mp3" --include=".*"...(Example)  ---> Exclude MP3
+- ... ... -e shh --include=".*" --exclude="*.mp3"...(Example)  ---> Just MP3
+- ... ... ... ... ... --dry-run ---> Enable to visualise changes before syncing
+- -e shh= Using ssh for communication, a=archive, z=zip during transfer, u=update(not overwrite, r=recursive, P=outpout verbose
+
+
 # Docker.io (Containers)
 - sudo dockerd                      ---> Start docker
 - sudo usermod -aG docker USERNAME  ---> Ading user to docker group, enable user to run docker stuff without beeing root (-a = Primary group | -G = Secondary group) - REBOOT
@@ -291,20 +341,73 @@ command | tee >> FILE.TXT
 - docker search ubuntu (EX)         ---> Search for docker images
 - docker pull NAMEOFIMAGE           ---> Download the image to the computer
 - https://hub.docker.com/           ---> Docker images (Best way to start)
-- docker run helloworld             ---> Download and run helloworld
+- docker run --name helloworld      ---> Download and run helloworld
+- docker run --name helloworld -it  ---> Run helloworld container and make it interactive
+	- CTRL P & CTRL Q               ---> Process in background and quit
+- docker attach NAME                ---> Connect back to the container 
+- docker stop NAME                  ---> Stop container
+- docker rm NAME                    ---> Remove the container
+
+
+# Automate Docker container (Very powerfull)
+- sudo apt install docker.io docker-compose
+- nano docker-compose.yaml          ---> create docker configuration file to manage containers
+	#CHECK CONTAINER DOCUMENTATION
+	version: '3.7'
+	services:
+	  portainer:
+	    container_name: DOCKERNAME
+	    image: DOCKERFILENAME:VERSION (VERSION IS OPTIONAL DEPENDING WHAT YOU WANT TO INSTALL)
+	    restart: 'always'           ---> Make it restart by default
+	    ports:
+	      - target: 'PORT1'
+	        published: 'PORT1'
+	        protocol: tcp
+	      - target: 'PORT2'
+	        published: 'PORT2'
+	        protocol: tcp
+	    volumes:                    ---> Provide Persistent storage
+	      - type: bind
+	        source: /var/run/docker.sock
+	        target: /var/run/docker.sock
+	      - type: bin
+	        source: /srv/DOCKERNAME
+	        target: /data/
+
+- sudo mkdir /srv/DOCKERNMAE        ---> Create the directory to host the persistence data
+- docker-compose up --datach        ---> Launch the configuration file in background
+
 
 # Create shortcut (reference)
 ln -s NAMEOFSHORTCUT /somewhere/DESTINATIONSHORTCUT  ---> Create shortcut (reference)
 
+
 # Combine files together
 - cat file1.txt file2.txt file3.txt > combined_list.txt
+
 
 # Sort and remove duplicate
 - sort combined_list.txt | uniq -u > cleaned_combined_list.txt
 
+
 # Archive and Zipping
-- tar -czf Newfile.tgz *             ---> Archive & zip in current folder (* = All)
-- tar -xzf file.tgz                  ---> Unzip tar file
+- tar -czf Newfile.tgz *               ---> Archive & zip in current folder (* = All)
+- tar -xzf file.tgz                    ---> Unzip tar file
+
+
+# Linux firewall (Rules orders are important!!!)
+- sudo ufw status                      ---> See firewall rules in place
+- sudo ufw allow ssh                   ---> Allow SSH (22) trought the firewall
+- sudo ufw deny ...                    ---> Deny ports
+- sudo ufw prepend deny ...            ---> Add the Deny or Allow rule at the begiging
+- sudo ufw numbered                    ---> Give you a list and number to insert rules at right spot
+- sudo ufw insert NUMBER deny ...      ---> Add rules between two rules numbers
+- sudo ufw allow 80/tcp comment "HTTP" ---> Allow HTTP (80) trought the firewall & add comment
+- sudo ufw allow 20,21/tcp comment "FTP" ---> Services that need more then 1 port open
+- sudo ufw allow 30000:40000/UDP ...     ---> Open range of ports
+- sudo ufw allow 80,443,2000:3000/TCP ...---> Open range + specific ports
+
+- sudo ufx prepend allow proto tcp from 192.168.0.0/24 to any port 22 ---> Allow any local computer trafic to ssh
 ```
 
 ---
