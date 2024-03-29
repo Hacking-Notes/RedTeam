@@ -17,9 +17,9 @@ Finally, you'll find information on windows and linux hacking, including techniq
 
 ## Get the same Obsidian Setup
 
-If you're looking to replicate the sleek and stylish obsidian setup, you're in luck! You can easily achieve the same look by downloading it from the link provided below.
+If you aspire to recreate the elegant and fashionable obsidian setup, you're in for a treat! Achieving the same aesthetic is a breeze with the download link provided below, which includes all the obsidian plugins I utilize with my notes.
 
-Link: <a href="https://drive.google.com/drive/folders/1mli7lFvswrRcxEfdtmqdogFjSSSwDWkq?usp=sharing">Google Drive</a>
+Link: <a href="https://drive.proton.me/urls/YJEN1DX2NC#mXrYphpHWyRn">Google Drive</a>
 
 ---
 
