@@ -19,8 +19,8 @@ Others
 ---
 <h2>Privacy</h2>
 
-| Privacy | Availability | Documented |
-| -------- | -------------------------- | -------------------------- | 
-| Public   | Available to the public    | Documented                 |
-| Semi-Public | Semi-Available | Documented between two parties      |
-| Private  | Available for the compagny | Documented Internally      |
+| Privacy     | Availability               | Documented                     |
+| ----------- | -------------------------- | ------------------------------ |
+| Public      | Available to the public    | Documented                     |
+| Semi-Public | Semi-Available             | Documented between two parties |
+| Private     | Available for the compagny | Documented Internally          |
