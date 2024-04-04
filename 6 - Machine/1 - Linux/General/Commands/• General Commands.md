@@ -1,9 +1,14 @@
---- ---
+---
+cards-deck:
+---
 
-#### - Common & Most Used (Recursive)
+ --- ---
+
+#### - Common & Most Used (Recursive) 
 ```Terminal
 - cd                                  ---> Move directory or go home directory if alone
 - /..                                 ---> Come back from one direcotry
+^1712246884817
 
 - ls -la                              ---> List element (Info)
 - ls -lh                              ---> List element (Give more information - hidden)
@@ -30,6 +35,8 @@
 - chown [user]:[group] [file]         ---> Change file ownership.
 
 - man [command]                       ---> Display the manual page for a command.
+- info [command]                      ---> Display more brief information
+- [command] --help                    ---> Display general help information
 - find [directory] -name [filename]   ---> Search for files or directories by name.
 - wget [URL]                          ---> Download files from the web.
 - curl [URL]                          ---> Transfer data from or to a server.
@@ -64,6 +71,8 @@
 - head -n 5 file.txt                 ---> output the first 5 lines of the document
 - tail -n 5 file.txt                 ---> output the last 5 lines of the document
 - tail -n +2 file.txt                ---> Output everything after the second line
+- cut -c 5-9 file.txt                ---> Output character 5-9 of each lines from file.txt
+- cut -d, -f 2 file.txt              ---> -d=delimiter (,=the delimiter), -f 2=Second field 
 
 - >                                  ---> Create output
 - 2>                                 ---> Output error to somewhere you want
@@ -131,8 +140,15 @@ Examples
 ```
 
 
-#### - Network
+#### - Network & Address Resolution Protocol
 ```
+# Address Resolution Protocol
+- arp -a                             ---> Displays addresses of all computers communicated with
+
+
+# Network
+- wget -O - -q https://checkip.amazonaws.com   ---> Find your Public IP address in terminal
+
 - nslookup DOMAIN                    ---> Check DNS record (MX, CNAME, ...)
 - ip -br addr                        ---> BEST WAY TO CHECK NETWORK ADDRESS & STATUS 
 - ip a                               ---> Easiest and fastest way to get IP info
@@ -141,22 +157,33 @@ Examples
 - ss -tuna                           ---> Show ports and status (Open/Close) - SAME
 - ss -natp                           ---> Show ports (a= active, t=TCP, p=program)
 - traceroute www.something.com       ---> See routing
+- mtr www.something.com              ---> Like traceroute but live & interactive
+- tracepath www.something.com        ---> Like tracerout but spend 30s each hop (gather data)
 - systemctl restart systemd-networkd ---> Restart network
 - systemctl restart systemd-resolved ---> Restart resolved srv (NEEDED AFTER NETWORK)
 
 - nmcli device status                ---> Show available network device and status
 - nmcli device show DEVICENAME       ---> More info on device (DEVICE NAME=CONNECTION)
-- nmcli connection edit DEVICENAME   ---> Command prompt that enable you to change value
-	- set ipv4.whatneedtochange NEW-VALUE ---> Give new value to the device
-	- save temporary                      ---> Make it effective until reboot
-	- save persistent                     ---> Make it effective now til changed
+- sudo nmcli connection edit DEVICENAME   ---> Command prompt that enable you to change value
+	- set ipv4.whatneedtochange NEW-VALUE    ---> Give new value to the device
+	- save temporary                         ---> Make it effective until reboot
+	- save persistent                        ---> Make it effective now til changed
+	- quit                                   ---> Quit
 
 - cat /etc/hosts                     ---> Show DNS from the machine (IP linked to Nameserver)
 - cat /etc/resolv.conf               ---> Show where we will querry the DNS IP
+- cat /etc/nsswitch.conf             ---> Specifies service lookup order (files, DNS, ...)
 
-- wget -O - -q https://checkip.amazonaws.com   ---> Find your IP address in terminal
+# Troubleshooting issues (OSI layers)
+- ping www.google.com ---> Tests connectivity to a domain name to check DNS resolution
+- ping PUBLIC-IP      ---> Tests connectivity public IP address to check internet connection
+- ping computer1      ---> Tests connectivity local hostname (computer1) to check internal DNS
+- ping 192.168.2.1    ---> Tests connectivity local IP address (192.168.2.1) internal network
+- nslookup computer1  ---> Performs a DNS lookup hostname computer1 DNS information internal
+- host computer1      ---> DNS resolution, looking the hostname computer1 from localhost file.
+- ping 127.0.0.1      ---> Pings the loopback address check networking stack is operational (should always work if networking is functioning).
+- arp -a              ---> Displays the ARP cache, showing the mapping of IP addresses to MAC addresses on the local network.
 ```
-
 
 #### - Files / File system / Partitions & Volumes
 ```
@@ -194,6 +221,7 @@ shred FILE     ---> Destoy redability of a file
 
 
 # Symbolic Links
+- ll FILENAME                                   ---> Show symb link path (where does it goes?)
 - ln LOCATION/FILE LINK-LOCATION/SYMBO-NAME     ---> Create hardlink (Better for Same disk)
 - ln -s LOCATION/FILE LINK-LOCATION/SYMBO-NAME  ---> Create a softlink
 
@@ -244,11 +272,13 @@ GPT  --> GUID (Globally Unique Identifier) Partition Table (Up to 128 partitions
 # Mounting Volumes and Files system
 - df -h                              ---> Show mounting points of volumes & other info
 - lsblk                              ---> Show available mounting volumes
+- sudo e2label /dev/SDA(ex) NAME     ---> Include label name for the drive
 - sudo mount /dev/sdb1 /mnt/FOLDER   ---> Mount sdb1 to mtn/FOLDER
 - sudo mount -t ext4 /dev/sdb1 /mnt/FOLDER ---> Specify the format (not obligated)
 - sudoedit /etc/fstab                ---> Add entry to mount after every bootup
 	- /dev/sdb1 /mnt/FOLDER FILEFORMAT defaults 0 0
-	- UUID=THE_UUID /mnt/FOLDER FILEFORMAT defaults 0 0 ---> Use UUID to mount volume
+	- UUID=THE_UUID /mnt/FOLDER FILEFORMAT defaults 0 0   ---> Use UUID to mount volume
+	- LABEL=THE_LABEL /mnt/FOLDER FILEFORMAT defaults 0 0 ---> Use Label to mount volume
 - sudo mount -a                      ---> Launch automaticly the fstab files
 - sudo umount /dev/sdb1              ---> Unmount the partition
 
@@ -275,6 +305,13 @@ Mounting logical volumes can be apply the same way has normal volume to make the
 - sudo lvremove /dev/vg1/Virtvolume        ---> Remove volume space (ext4) NEED DO ...
 - sudo vgremove /dev/vg1                   ---> Remove volume space (ext4) NEED DO ...
 - sudo pvremove /dev/sdb1 /dev/sdc1 /dev/vg1---> Remove volume space (ext4) NEED DO ...
+
+# Rebuild bootloaded (Without touching to the linux distro)
+- sudo mount /dev/sdb1 /mnt/sdb1           ---> Mounting the bootloader volume to the mount folder
+- sudo grub-install -rootodirectory=/mnt/sdb1 /dev/sdb ---> Reinstalling the bootloader
+
+# Analyzing Bootloading Times: Identifying Programs with Longer Load Times
+- sudo systemd-analyze blame               ---> Identifying Programs with Longer boot Times
 ```
 
 
@@ -299,6 +336,7 @@ More info: https://www.pathname.com/fhs/pub/fhs-2.3.html
 - /usr                 ---> User storage
 - /usr/share/bin       ---> Program other then apps, example: stuff appache migh use
 
+- /dev                 ---> Show devices
 - /proc                ---> Folder that contain the process that can be found in the command ps
 - /sys                 ---> Kernel and boot stuff
 - /dev                 ---> Device nodes, provide an interface through which software can interact with hardware devices. Ex: dev/sda = SATA hard drive, dev/ttyS0 = first serial port...
@@ -393,6 +431,10 @@ If (+) is showed when performing ls -l, this mean that it contain other type of 
 - setfacl -x u:USER:rw FILE.txt      ---> Remove User to the permission with rW
 - setfacl -m g:GROUP:rw FILE.txt     ---> Add Group to the permission with rw 
 - setfacl -m d:u:USER:rw FILE.txt    ---> Set permission to a directory (Can be done to group)
+
+
+# Secure Linux - Restrict Accounts (Debian)
+- Apparmor                           ---> Check Apparmor
 ```
 
 
@@ -422,7 +464,8 @@ If (+) is showed when performing ls -l, this mean that it contain other type of 
 
 
 # System
-- uname -r or -a                     ---> kernel version
+- uname -a                           ---> kernel version info
+- uname -r                           ---> Just kernel infor
 
 - isb_release -a                     ---> Server version
 
@@ -482,7 +525,7 @@ If (+) is showed when performing ls -l, this mean that it contain other type of 
 - shh USER@IP                    ---> Connect to SSH
 
 
-# File transfer
+# Get Files & transfers Files
 - Filezilla               ---> Good option if GUI available
 - wget URL                ---> Download any pointing url
 - curl URL                ---> Download urls/services/mails/.. (WGET on steroids)
@@ -554,6 +597,7 @@ If (+) is showed when performing ls -l, this mean that it contain other type of 
 # Archive and Zipping
 - tar -cf NEWFILECREATED.tar ./DIRECTORY-TO-TAR ---> Package files together & Archive them
 - tar -czf Newfile.tgz *                        ---> Archive & gzip in current folder (* = All)
+- tar -cjf Newfile.tgz *                        ---> Archive & Bzip in current folder (* = All)
 - tar -xzf file.tgz                             ---> Ungzip tar file
 
 
@@ -581,5 +625,4 @@ If (+) is showed when performing ls -l, this mean that it contain other type of 
 - sudo timedatectl set-timezone EXACT-NAME-&-CITY ---> Change dates to the region
 - localectl list-locales              ---> Display possible settings for your machine
 - localectl set-locale LAN=fr_FR.utf8 ---> Local set utf8/FR keyboard (Reboot after)
-
 ```
