@@ -18,6 +18,8 @@ Finally, you'll find information on windows and linux hacking, including techniq
 
 ## Access My Additional Hacking Resources
 
+Explore my Blue Team hacking notes, your go-to resource for defending against cyber threats with steadfast determination and state-of-the-art strategies. ---> <a href="https://github.com/Hacking-Notes/Blueteam">BlueTeam Notes</a>
+
 Enhance your hacking toolkit with my Chrome Extension. Designed for ethical hacking and red team activities, it offers tailored features for an improved browsing experience. ---> <a href="https://github.com/Hacking-Notes/Extensions">Chrome Extension</a>
 
 Elevate your bookmarking game with my latest Bookmark Toolkit. Engineered for ethical bookmarking and enhanced web exploration, it delivers customized features for a seamless browsing journey. ---> <a href="https://github.com/Hacking-Notes/Bookmarks">Bookmarks</a>
