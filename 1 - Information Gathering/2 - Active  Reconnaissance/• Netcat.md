@@ -20,10 +20,3 @@ nc IP PORT
 GET / HTTP/VERSION (check on website targeted what version they use)
 host: netcat
 ```
-
----
-<h3>More Information</h3>
-
-For more information on Netcat, including additional commands and options, users can refer to the tool's documentation or the GitHub repository: [https://github.com/netcat/netcat](https://github.com/netcat/netcat)
-
-<iframe src="https://github.com/netcat/netcat" width="100%" height="1300"></iframe>
