@@ -3,22 +3,24 @@
 [![hacking-notes](https://github.com/Hacking-Notes/RedTeam/assets/118412415/1652df89-569f-454a-afa9-60b92f112242)](https://hacking-notes.github.io)
 
 Hello and welcome to my GitHub repository! This repository contains notes and resources related to ethical hacking, also known as "red team." Here, you'll find a wealth of information on various aspects of hacking, including information gathering, scanning and enumeration, web hacking, exploitation, and windows/linux hacking.
-<pre></pre>
-Access a live version of my notes here **(Obsidian's syntax may break some elements)**: https://hacking-notes-online.vercel.app/ 
-<pre></pre>
+
+Live version of my notes **(Obsidian's syntax may break elements)**: https://hacking-notes-online.vercel.app/ 
+
+## Information
 [![image](https://user-images.githubusercontent.com/118412415/226417488-27cb9aac-877c-411e-916f-02033662cf49.png)
-](https://github.com/Hacking-Notes/RedTeam/assets/118412415/af0ea1fb-0c7c-48e1-9e0e-5013f8a6bae2
-)
+](https://github.com/Hacking-Notes/RedTeam/assets/118412415/af0ea1fb-0c7c-48e1-9e0e-5013f8a6bae2)
 
-Starting with information gathering, you'll find techniques and tools for gathering information about a target system or network, such as reconnaissance and footprinting. This information can then be used to identify potential vulnerabilities and plan your attack.
+Below, you'll find a breakdown of the hacking methodology and various hacking techniques:
 
-Moving on to scanning and enumeration, you'll learn about the various methods used to map out a target network, including port scanning and network mapping. These techniques allow you to identify open ports, running services, and other information that can help you identify potential vulnerabilities.
+- Starting with information gathering, you'll find techniques and tools for gathering information about a target system or network, such as reconnaissance and footprinting. This information can then be used to identify potential vulnerabilities and plan your attack.
 
-In the section on web hacking, you'll find information on various types of injection vulnerabilities, including SQL injection, command injection, and cross-site scripting (XSS). You'll learn about the mechanics of these attacks, as well as how to detect and prevent them.
+- Moving on to scanning and enumeration, you'll learn about the various methods used to map out a target network, including port scanning and network mapping. These techniques allow you to identify open ports, running services, and other information that can help you identify potential vulnerabilities.
 
-The exploitation section of the repository covers techniques for taking advantage of vulnerabilities in order to gain unauthorized access to a target system. This may involve techniques such as buffer overflows, privilege escalation, or other methods of compromising a system.
+- In the section on web hacking, you'll find information on various types of injection vulnerabilities, including SQL injection, command injection, and cross-site scripting (XSS). You'll learn about the mechanics of these attacks, as well as how to detect and prevent them.
 
-Finally, you'll find information on windows and linux hacking, including techniques for exploiting vulnerabilities in these popular operating systems. Whether you're a beginner or an experienced hacker, you'll find valuable information and resources in this repository to help you improve your skills and better understand the world of ethical hacking.
+- The exploitation section of the repository covers techniques for taking advantage of vulnerabilities in order to gain unauthorized access to a target system. This may involve techniques such as buffer overflows, privilege escalation, or other methods of compromising a system.
+
+- Finally, you'll find information on windows and linux hacking, including techniques for exploiting vulnerabilities in these popular operating systems. Whether you're a beginner or an experienced hacker, you'll find valuable information and resources in this repository to help you improve your skills and better understand the world of ethical hacking.
 
 ## Access My Additional Hacking Resources
 
