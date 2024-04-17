@@ -7,8 +7,7 @@ Hello and welcome to my GitHub repository! This repository contains notes and re
 Live version of my notes **(Obsidian's syntax may break elements)**: https://hacking-notes-online.vercel.app/ 
 
 ## Information
-[![image](https://user-images.githubusercontent.com/118412415/226417488-27cb9aac-877c-411e-916f-02033662cf49.png)
-](https://github.com/Hacking-Notes/RedTeam/assets/118412415/af0ea1fb-0c7c-48e1-9e0e-5013f8a6bae2)
+https://github.com/Hacking-Notes/RedTeam/assets/118412415/af0ea1fb-0c7c-48e1-9e0e-5013f8a6bae2
 
 Below, you'll find a breakdown of the hacking methodology and various hacking techniques:
 
