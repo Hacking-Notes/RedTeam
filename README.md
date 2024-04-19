@@ -4,11 +4,11 @@
 
 Hello and welcome to my GitHub repository! This repository contains notes and resources related to ethical hacking, also known as "red team." Here, you'll find a wealth of information on various aspects of hacking, including information gathering, scanning and enumeration, web hacking, exploitation, and windows/linux hacking.
 
-Live version of my notes **(Obsidian's syntax may break elements)**: https://hacking-notes.github.io
+Live version of my notes: https://hacking-notes.github.io
 
 ## Information
 
-Below, you'll find a breakdown of the hacking methodology and various hacking techniques:
+Below, you'll find a breakdown of the hacking methodology and various hacking techniques that is included in my notes:
 
 - Starting with information gathering, you'll find techniques and tools for gathering information about a target system or network, such as reconnaissance and footprinting. This information can then be used to identify potential vulnerabilities and plan your attack.
 
@@ -28,14 +28,9 @@ Enhance your hacking toolkit with my Chrome Extension. Designed for ethical hack
 
 Elevate your bookmarking game with my latest Bookmark Toolkit. Engineered for ethical bookmarking and enhanced web exploration, it delivers customized features for a seamless browsing journey. ---> <a href="https://github.com/Hacking-Notes/Bookmarks">Bookmarks</a>
 
-## Get the same Obsidian Setup
+## Download my Notes
 
-If you aspire to recreate the elegant and fashionable obsidian setup, you're in for a treat! Achieving the same aesthetic is a breeze with the download link provided below, which includes all the obsidian plugins I utilize with my notes.
-
-Link: <a href="https://drive.proton.me/urls/RH80T2AQFR#gSaXYYpJRFF8">Proton Drive</a>
-
-- Unpack the file (you may have to temporarily disable Windows thread and protection during unpacking as certain file names may trigger deletions). 
-- Launch Obsidian and direct it to the recently unpacked files!
+If you want to have my notes available offline in your Obsidian setup, feel free to download my archive file and customize it to your liking.
 
 ---
 
