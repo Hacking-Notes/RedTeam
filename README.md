@@ -7,7 +7,6 @@ Hello and welcome to my GitHub repository! This repository contains notes and re
 Live version of my notes **(Obsidian's syntax may break elements)**: https://hacking-notes.github.io
 
 ## Information
-https://github.com/Hacking-Notes/RedTeam/assets/118412415/af0ea1fb-0c7c-48e1-9e0e-5013f8a6bae2
 
 Below, you'll find a breakdown of the hacking methodology and various hacking techniques:
 
