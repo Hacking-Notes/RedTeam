@@ -1,4 +1,4 @@
-# Hacking-Notes (Red Team)
+# Hacking Notes (RedTeam)
 
 ![github](https://github.com/Hacking-Notes/RedTeam/assets/118412415/d71082fb-15f8-4950-b0ec-2e73c65a71fd)
 
