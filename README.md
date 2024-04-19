@@ -36,4 +36,6 @@ If you want to have my notes available offline in your Obsidian setup, feel free
 
 **Please note that these notes do not comprise a comprehensive guide to becoming a red teamer. They are a work in progress and will continually be updated and expanded with more information.**
 
-  ![image](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.net-model.com%2Fimg%2Flogo-discord.png&f=1&nofb=1&ipt=0b347aa70a05f91f4015e7e1049581eba2f397f35b8f27ebb18ae2190210f8ea&ipo=images)ㅤContact Me: Discord --> HackingNotes
+  <a href="https://discord.com">
+  <img width="300" src="https://github.com/Hacking-Notes/Hacking-Notes/assets/118412415/5f34c47e-8f9e-40ef-885d-91ee9a6c5989" alt="gif">
+  </a>
