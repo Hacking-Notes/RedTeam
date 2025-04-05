@@ -31,11 +31,3 @@ Elevate your bookmarking game with my latest Bookmark Toolkit. Engineered for et
 ## Download my Notes
 
 If you want to have my notes available offline in your Obsidian setup, feel free to download my archive file and customize it to your liking.
-
----
-
-**Please note that these notes do not comprise a comprehensive guide to becoming a Redteamer. They are a work in progress and will continually be updated and expanded with more information.**
-
-  <a href="https://discord.com">
-  <img width="300" src="https://github.com/Hacking-Notes/Hacking-Notes/assets/118412415/5f34c47e-8f9e-40ef-885d-91ee9a6c5989" alt="gif">
-  </a>
