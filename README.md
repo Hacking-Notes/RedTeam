@@ -1,12 +1,19 @@
+<a name="top"></a>
+
 <div align="center">
 
-<kbd>&nbsp;RED TEAM&nbsp;</kbd> &nbsp; <kbd>&nbsp;OFFENSIVE&nbsp;</kbd> &nbsp; <kbd>&nbsp;NOTES&nbsp;</kbd> &nbsp; 
+<img src="assets/header.svg" alt="Red Team Notes" width="100%" />
 
-[![Website](https://img.shields.io/badge/WEBSITE-hacking--notes.com-ff3333?style=flat-square&labelColor=000000)](https://hacking-notes.com)
+<br />
+
+<a href="https://github.com/Hacking-Notes/RedTeam/stargazers"><img src="https://img.shields.io/github/stars/Hacking-Notes/RedTeam?style=for-the-badge&logo=github&logoColor=1f2328&label=Stars&labelColor=f6f8fa&color=059669" alt="Stars" /></a>
+<a href="https://github.com/Hacking-Notes/RedTeam/network/members"><img src="https://img.shields.io/github/forks/Hacking-Notes/RedTeam?style=for-the-badge&logo=git&logoColor=1f2328&label=Forks&labelColor=f6f8fa&color=0284c7" alt="Forks" /></a>
+<a href="https://github.com/Hacking-Notes/RedTeam/commits"><img src="https://img.shields.io/github/last-commit/Hacking-Notes/RedTeam?style=for-the-badge&label=Updated&labelColor=f6f8fa&color=7c3aed" alt="Last commit" /></a>
+<a href="https://hacking-notes.com"><img src="https://img.shields.io/badge/More-hacking--notes.com-db2777?style=for-the-badge&labelColor=f6f8fa" alt="hacking-notes.com" /></a>
 
 </div>
 
-# Hacking Notes (RedTeam)
+<br />
 
 Hello and welcome to my GitHub repository! This repository contains notes and resources related to ethical hacking, also known as "red team." Here, you'll find a wealth of information on various aspects of hacking, including information gathering, scanning and enumeration, web hacking, exploitation, and windows/linux hacking.
 
@@ -26,6 +33,9 @@ Below, you'll find a breakdown of the hacking methodology and various hacking te
 
 - Finally, you'll find information on windows and linux hacking, including techniques for exploiting vulnerabilities in these popular operating systems. Whether you're a beginner or an experienced hacker, you'll find valuable information and resources in this repository to help you improve your skills and better understand the world of ethical hacking.
 
+
+<img src="assets/divider.svg" width="100%" alt="" />
+
 ## Access My Additional Hacking Resources
 
 Explore my Blue Team hacking notes, your go-to resource for defending against cyber threats with steadfast determination and state-of-the-art strategies. ---> <a href="https://github.com/Hacking-Notes/Blueteam">BlueTeam Notes</a>
@@ -34,21 +44,31 @@ Enhance your hacking toolkit with my Chrome Extension. Designed for ethical hack
 
 Elevate your bookmarking game with my latest Bookmark Toolkit. Engineered for ethical bookmarking and enhanced web exploration, it delivers customized features for a seamless browsing journey. ---> <a href="https://github.com/Hacking-Notes/Bookmarks">Bookmarks</a>
 
+
+<img src="assets/divider.svg" width="100%" alt="" />
+
 ## Download my Notes
 
 If you want to have my notes available offline in your Obsidian setup, feel free to download my archive file and customize it to your liking.
 
-<br>
+<img src="assets/divider.svg" width="100%" alt="" />
+
+## 🧰 Hacking Notes Ecosystem
 
 <div align="center">
 
-### ───────────────  HACKING NOTES ECOSYSTEM  ───────────────
-
-[![Website](https://img.shields.io/badge/🌐_WEBSITE-hacking--notes.com-ff3333?style=flat-square&labelColor=000000)](https://hacking-notes.com)
-[![Roadmap](https://img.shields.io/badge/🗺_ROADMAP-Hacker--Roadmap-f5f5f5?style=flat-square&labelColor=000000)](https://github.com/Hacking-Notes/Hacker-Roadmap)
-[![RedTeam](https://img.shields.io/badge/🔴_RED_TEAM-notes-ff3333?style=flat-square&labelColor=000000)](https://github.com/Hacking-Notes/RedTeam)
-[![BlueTeam](https://img.shields.io/badge/🔵_BLUE_TEAM-notes-3388ff?style=flat-square&labelColor=000000)](https://github.com/Hacking-Notes/BlueTeam)
-
-<sub><code>// part of the Hacking Notes toolkit — hacking-notes.com</code></sub>
+🌐 &nbsp;**[hacking-notes.com](https://hacking-notes.com)** &nbsp;·&nbsp; ✍️ &nbsp;**[blog](https://hacking-notes.medium.com/)** &nbsp;·&nbsp; 💬 &nbsp;**[discord](https://discord.gg/r68ameNHrD)**
 
 </div>
+
+| | Resource | What you get |
+| :-: | -------- | ------------ |
+| 🗺 | **[Hacker-Roadmap](https://github.com/Hacking-Notes/Hacker-Roadmap)** | Structured paths from beginner to pro — hobbyist, bug bounty, certs & degree. |
+| 🔴 | **[RedTeam Notes](https://github.com/Hacking-Notes/RedTeam)** | Offensive security notes: recon, exploitation, Windows & Linux. |
+| 🔷 | **[BlueTeam Notes](https://github.com/Hacking-Notes/BlueTeam)** | Defensive security notes: forensics, malware, log & packet analysis. |
+| 🧩 | **[Extensions](https://github.com/Hacking-Notes/Extensions)** | Curated Chrome extensions for ethical hacking & recon. |
+| 🔖 | **[Bookmarks](https://github.com/Hacking-Notes/Bookmarks)** | Curated hacker bookmark collection, one import away. |
+
+<img src="assets/footer.svg" width="100%" alt="" />
+
+<div align="right"><a href="#top">⬆ back to top</a></div>
